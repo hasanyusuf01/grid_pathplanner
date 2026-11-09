@@ -15,6 +15,8 @@ namespace grid_path_planner{
                 bool isWithinBounds(int x, int y) const;
                 bool isObstacle(int x, int y) const;
                 void setObstacle(int x, int y, bool is_obs);
+                int getWidth() const;
+                int getHeight() const;
         };
 
         struct Cell{

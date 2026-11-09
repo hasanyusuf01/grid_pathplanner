@@ -17,4 +17,12 @@ bool grid_path_planner::GridMap::isWithinBounds(int x, int y) const {
     }
 }
 
+int grid_path_planner::GridMap::getWidth() const {
+    return width_;
+}
+
+int grid_path_planner::GridMap::getHeight() const {
+    return height_;
+}
+
 

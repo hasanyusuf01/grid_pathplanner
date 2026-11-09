@@ -16,8 +16,13 @@ double astar_planner::AStarPlanner::eucDist(int current_x, int current_y) const{
             };
 
 std::vector<grid_path_planner::Cell> astar_planner::AStarPlanner::planPath(const grid_path_planner::GridMap& grid_map, const grid_path_planner::Cell& start_cell){
+
+
+    int width = grid_map.getWidth();
+    int height = grid_map.getHeight();
+    
     std::priority_queue<grid_path_planner::Cell, std::vector<grid_path_planner::Cell>, NodeCompare> open_set;
-    // std::vector<std::vector<bool>> closed_set(width, std::vector<bool>(height, false));
+    std::vector<std::vector<bool>> closed_set(width, std::vector<bool>(height, false));
     std::vector<grid_path_planner::Cell> path;
     return path;
 };
