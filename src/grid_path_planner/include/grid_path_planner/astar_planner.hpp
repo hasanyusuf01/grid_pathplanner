@@ -29,7 +29,7 @@ namespace astar_planner {
             double  eucDist(int current_x, int current_y)const;
         public:
                 AStarPlanner(const grid_path_planner::Cell& goal_cell);
-                std::vector<grid_path_planner::Cell> planPath(const grid_path_planner::GridMap& grid_map, const grid_path_planner::Cell& start_cell);
+                std::vector<grid_path_planner::Cell> planPath(const grid_path_planner::GridMap& grid_map,grid_path_planner::Cell& goal_cell, grid_path_planner::Cell& start_cell);
 
 
     };
