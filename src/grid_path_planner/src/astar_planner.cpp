@@ -1,4 +1,5 @@
 #include <cmath>
+#include <algorithm>
 # include "astar_planner.hpp"
 # include "grid_map.hpp"
 
@@ -123,19 +124,22 @@ std::vector<grid_path_planner::Cell> astar_planner::AStarPlanner::planPath(
 
         }// loop break 
 
-        auto curr_node = goal_cell;
         // std::vector<
+        int curr_x = goal_cell.x;
+        int curr_y = goal_cell.y;
 
-        while(curr_node.parent[0] != -1){
-            path.push_back(curr_node); 
+                // Loop backward until you hit the start cell (whose parent is {-1, -1})
+        while (curr_x != -1 && curr_y != -1) {
+            // Construct and push the cell to your path vector
+            path.push_back({curr_x, curr_y});
 
-            curr_node = 
+            // Look up who the parent was
+            std::pair<int, int> parent_coords = parent_map[curr_y][curr_x];
+            curr_x = parent_coords.first;
+            curr_y = parent_coords.second;
         }
 
-
-        
-
-
-
+        // Since we walked backward (Goal -> Start), reverse it to flow Start -> Goal
+        std::reverse(path.begin(), path.end());
         return path;
 };
